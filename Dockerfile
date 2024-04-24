@@ -15,9 +15,9 @@ FROM base AS builder
 
 RUN apk update && apk add --no-cache git
 
-ENV OPENAI_API_KEY="hk-n1y2fz1000020279b8ad4dbb3f59463f85f0716272d2c027"
-ENV GOOGLE_API_KEY="https://api.openai-hk.com"
-ENV CODE="1"
+ENV OPENAI_API_KEY=""
+ENV GOOGLE_API_KEY=""
+ENV CODE=""
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -31,9 +31,9 @@ WORKDIR /app
 RUN apk add proxychains-ng
 
 ENV PROXY_URL=""
-ENV OPENAI_API_KEY="hk-n1y2fz1000020279b8ad4dbb3f59463f85f0716272d2c027"
-ENV GOOGLE_API_KEY="https://api.openai-hk.com"
-ENV CODE="1"
+ENV OPENAI_API_KEY=""
+ENV GOOGLE_API_KEY=""
+ENV CODE=""
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
